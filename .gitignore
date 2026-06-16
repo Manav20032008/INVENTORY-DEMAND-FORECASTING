@@ -1,1 +1,25 @@
 *.csv
+
+# Logs and databases
+*.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Applications/IDEs
+.vscode/
+.idea/
+
+# Environments and secrets
+.env
+.env.local
+
+# Dependencies
+node_modules/
+venv/
+
+# Build outputs
+dist/
+build/

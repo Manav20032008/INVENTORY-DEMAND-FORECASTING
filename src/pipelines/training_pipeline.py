@@ -1,4 +1,5 @@
 import joblib
+import json
 from pathlib import Path
 from src.pipelines.data_pipeline import DataPipeline
 from src.models.train_xgboost import XGBoostTainer
@@ -10,6 +11,24 @@ class TrainingPipeline:
 
         self.data_pipeline = DataPipeline()
         self.model_trainer = XGBoostTainer()
+
+    def feature_model(self,features):
+        joblib.dump(features,"artifacts/feature_columns.pkl")
+
+    def metrics_model(self,metrics):
+        with open("artifacts/metrics.json","w") as f :
+            json.dump(metrics,f,indent=4)
+
+    def metadata_model(self,features):
+        metadata = {
+            "model_name":"XGBoost",
+            "version":"1.0",
+            "feature_count":len(features)
+        }
+
+        with open("artifacts/model_metadata.json","w") as f:
+            json.dump(metadata,f,indent=4)
+
 
     def run(self):
         print("Running Training Pipeline ...")
@@ -38,7 +57,7 @@ class TrainingPipeline:
         x_test = test_df[features]
         y_test = test_df["sales"]
 
-        model = (self.model_trainer.train(x_train,x_test))
+        model = (self.model_trainer.train(x_train,y_train))
 
         predictions = (model.predict(x_test))
 
@@ -55,6 +74,11 @@ class TrainingPipeline:
         joblib.dump(model,artifacts_dir
             /"xgb_model.pkl"
         )
+
+        self.feature_model(features)
+        self.metrics_model(metrics)
+        self.metadata_model(features)
+
 
         print("Model Saved Successfully.")
 

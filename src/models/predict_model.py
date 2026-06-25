@@ -1,9 +1,10 @@
 import joblib
+from backend.core.settings import settings
 
 class PredictionModel:
 
     def __init__ (self):
-        self.model = joblib.load("artifacts/xgb_model.pkl")
+        self.model = joblib.load(settings.MODEL_PATH)
 
         self.feature_columns = joblib.load(
             "artifacts/feature_columns.pkl")

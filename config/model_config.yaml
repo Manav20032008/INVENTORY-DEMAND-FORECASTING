@@ -1,0 +1,11 @@
+model :
+  name : xgboost
+
+artifacts :
+  model_path : artifacts/xgb_model.pkl
+  feature_path : artifacts/feature_columns.pkl
+
+  training : 
+  random_state : 45
+
+  

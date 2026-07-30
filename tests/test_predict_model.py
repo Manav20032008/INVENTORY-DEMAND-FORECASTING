@@ -1,5 +1,5 @@
 import pandas as pd
-from src.models.predict_model import PredictionModel
+from backend.src.models.predict_model import PredictionModel
 
 model = PredictionModel()
 

@@ -1,4 +1,4 @@
-from aqlalchemy import (Column,Integer,String)
+from sqlalchemy import (Column,Integer,String)
 from backend.database.base import Base
 
 class User(Base):

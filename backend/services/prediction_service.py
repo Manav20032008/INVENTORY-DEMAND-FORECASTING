@@ -1,7 +1,5 @@
 from src.pipeline.prediction_pipeline import PredictionPipeline
-from backend.logging.logger import get_logger
-
-logger = get_logger()
+from backend.repositories.prediction_repository import PredictionRepository
 
 
 class PredictionServices :
@@ -10,12 +8,19 @@ class PredictionServices :
 
         self.pipeline = PredictionPipeline()
 
-        def predict(self, request_data: dict):
+    def predict(self, db,  request_data: dict):
+        prediction = self.pipeline.predict(request_data)
 
-            logger.info("Prediction request received")
+        PredictionRepository.save_prediction(db=db,
+                        store=request_data["store"],
+                        item=request_data["item"],
+                        prediction=prediction      )
 
-            prediction = self.pipeline.predict(request_data)
+        return prediction
+        
+    def get_prediction_history(self,db , page: int, limit: int, store: int| None = None ) :
 
-            logger.info(f"Prediction: {prediction}")
-            
-            return prediction
+        return PredictionRepository.get_prediction(db=db , page=page ,limit=limit, store=store )
+    
+    def get_dashboard_analytics(self,db):
+        return PredictionRepository.get_analytics(db)

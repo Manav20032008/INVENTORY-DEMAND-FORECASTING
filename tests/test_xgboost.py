@@ -1,4 +1,4 @@
-from src.models.train_xgboost import XGBoostTainer
+from backend.src.models.train_xgboost import XGBoostTainer
 
 trainer = XGBoostTainer()
 

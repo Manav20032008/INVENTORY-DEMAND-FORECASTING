@@ -2,12 +2,12 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 
 from backend.exceptions.custom_exceptions import (
-    ModelNotFoundException,
-    PredictionException
+    model_not_found_execption,
+    predictiob_execption
 )
 
-async def model_not_foundhandler(request: Request,
-                        exc : ModelNotFoundException):
+async def model_not_found_handler(request: Request,
+                        exc : model_not_found_execption):
     
     return JSONResponse(
         status_code= 404,
@@ -18,7 +18,7 @@ async def model_not_foundhandler(request: Request,
     )
 
 async def prediction_handler(request: Request,
-                        exc : PredictionException):
+                        exc : predictiob_execption):
     
     return JSONResponse(
         status_code = 500,

@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from backend.routers.prediction_router import router as prediction_router
 
 from backend.exceptions.custom_exceptions import (
-    ModelNotFoundException,
-    PredictionException
+    model_not_found_execption,
+    predictiob_execption
 )
 
 from backend.exceptions.exception_handlers import (
@@ -18,12 +18,12 @@ app = FastAPI(
     version="1.0")
 
 app.add_exception_handler(
-    ModelNotFoundException,
+    model_not_found_execption,
     model_not_found_handler
 )
 
 app.add_exception_handler(
-    PredictionException,
+    predictiob_execption,
     prediction_handler
 )
 

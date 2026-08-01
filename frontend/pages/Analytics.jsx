@@ -1,10 +1,10 @@
-import AnalyticsDashboard from "../components/AnalyticsDashboard";
-import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorAlert from "../components/ErrorAlert";
-import useAnalytics from "../hooks/useAnalytics";
+import AnalyticsDashboard from "../components/AnalyticsDashboard"
+import LoadingSpinner from "../components/LoadingSpinner"
+import ErrorAlert from "../components/ErrorAlert"
+import useAnalytics from "../hooks/useAnalytics"
 
 export default function Analytics() {
-  const { analytics, predictions, loading, error, reload } = useAnalytics();
+  const { analytics, predictions, loading, error, reload } = useAnalytics()
 
   return (
     <section className="page">
@@ -26,5 +26,5 @@ export default function Analytics() {
         <AnalyticsDashboard analytics={analytics} predictions={predictions} />
       ) : null}
     </section>
-  );
+  )
 }

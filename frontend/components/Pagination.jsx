@@ -1,6 +1,6 @@
 export default function Pagination({ page, limit, itemCount, onPageChange }) {
-  const hasPrev = page > 1;
-  const hasNext = itemCount >= limit;
+  const hasPrev = page > 1
+  const hasNext = itemCount >= limit
 
   return (
     <div className="pagination">
@@ -26,5 +26,5 @@ export default function Pagination({ page, limit, itemCount, onPageChange }) {
         </button>
       </div>
     </div>
-  );
+  )
 }

@@ -1,42 +1,29 @@
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import {Bar,BarChart,CartesianGrid,ResponsiveContainer,Tooltip,XAxis,YAxis,} from "recharts";
 
 function aggregateByStore(predictions) {
-  const map = new Map();
+  const map = new Map()
 
   predictions.forEach((row) => {
-    const key = row.store;
-    const current = map.get(key) || { store: `Store ${key}`, total: 0, count: 0 };
-    current.total += row.prediction;
-    current.count += 1;
-    map.set(key, current);
-  });
+    const key = row.store
+    const current = map.get(key) || { store: `Store ${key}`, total: 0, count: 0 }
+    current.total += row.prediction
+    current.count += 1
+    map.set(key, current)
+  })
 
-  return [...map.values()]
-    .map((entry) => ({
-      store: entry.store,
-      average: Number((entry.total / entry.count).toFixed(2)),
-      count: entry.count,
-    }))
-    .sort((a, b) => a.store.localeCompare(b.store, undefined, { numeric: true }));
+  return [...map.values()].map((entry) => ({store: entry.store,average: Number((entry.total / entry.count).toFixed(2)),count: entry.count,}))
+    .sort((a, b) => a.store.localeCompare(b.store, undefined, { numeric: true }))
 }
 
 export default function StoreBreakdownChart({ predictions }) {
-  const data = aggregateByStore(predictions);
+  const data = aggregateByStore(predictions)
 
   if (!data.length) {
     return (
       <div className="chart-empty">
         <p>No store breakdown available yet.</p>
       </div>
-    );
+    )
   }
 
   return (
@@ -59,5 +46,5 @@ export default function StoreBreakdownChart({ predictions }) {
         <Bar dataKey="average" fill="#0ea5e9" radius={[8, 8, 0, 0]} maxBarSize={56} />
       </BarChart>
     </ResponsiveContainer>
-  );
+  )
 }

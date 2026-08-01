@@ -4,7 +4,7 @@ const defaultValues = {
   year: 2017,
   month: 1,
   day: 1,
-  daysofweek: 0,
+  daysofweek: 1,
   weekofyear: 1,
   quarter: 1,
   is_weekend: 0,
@@ -15,7 +15,7 @@ const defaultValues = {
   rolling_std_7: 1.2,
   rolling_mean_30: 15.2,
   rolling_std_30: 1.3,
-};
+}
 
 const fields = [
   { name: "store", label: "Store ID", type: "number" },
@@ -34,23 +34,23 @@ const fields = [
   { name: "rolling_std_7", label: "Rolling Std 7", type: "number", step: "0.01" },
   { name: "rolling_mean_30", label: "Rolling Mean 30", type: "number", step: "0.01" },
   { name: "rolling_std_30", label: "Rolling Std 30", type: "number", step: "0.01" },
-];
+]
 
 export default function PredictionForm({ onSubmit, loading }) {
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const payload = {};
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const payload = {}
 
     fields.forEach(({ name }) => {
-      const value = formData.get(name);
+      const value = formData.get(name)
       payload[name] = name.includes("lag") || name.includes("rolling")
         ? parseFloat(value)
-        : parseInt(value, 10);
-    });
+        : parseInt(value, 10)
+    })
 
-    onSubmit(payload);
-  };
+    onSubmit(payload)
+  }
 
   return (
     <form className="card prediction-form" onSubmit={handleSubmit}>
@@ -76,5 +76,5 @@ export default function PredictionForm({ onSubmit, loading }) {
         {loading ? "Predicting..." : "Run Prediction"}
       </button>
     </form>
-  );
+  )
 }

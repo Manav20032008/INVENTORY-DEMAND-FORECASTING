@@ -1,5 +1,5 @@
 export default function PredictionResult({ result }) {
-  if (!result) return null;
+  if (!result) return null
 
   return (
     <section className="card result-card">
@@ -22,5 +22,5 @@ export default function PredictionResult({ result }) {
         </div>
       </div>
     </section>
-  );
+  )
 }

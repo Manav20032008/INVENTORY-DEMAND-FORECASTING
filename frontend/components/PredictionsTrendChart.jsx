@@ -1,20 +1,7 @@
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import {Area,AreaChart,CartesianGrid,ResponsiveContainer,Tooltip,XAxis,YAxis,} from "recharts"
 
 function formatDate(iso) {
-  return new Date(iso).toLocaleDateString(undefined, {
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  return new Date(iso).toLocaleDateString(undefined, {month: "short",day: "numeric",hour: "2-digit",minute: "2-digit",})
 }
 
 export default function PredictionsTrendChart({ predictions }) {
@@ -23,16 +10,11 @@ export default function PredictionsTrendChart({ predictions }) {
       <div className="chart-empty">
         <p>No prediction data yet for trend chart.</p>
       </div>
-    );
+    )
   }
 
-  const data = [...predictions]
-    .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-    .map((row) => ({
-      label: formatDate(row.created_at),
-      prediction: Number(row.prediction.toFixed(2)),
-      store: row.store,
-    }));
+  const data = [...predictions].sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+    .map((row) => ({label: formatDate(row.created_at),prediction: Number(row.prediction.toFixed(2)),store: row.store,}))
 
   return (
     <ResponsiveContainer width="100%" height={280}>
@@ -63,5 +45,5 @@ export default function PredictionsTrendChart({ predictions }) {
         />
       </AreaChart>
     </ResponsiveContainer>
-  );
+  )
 }

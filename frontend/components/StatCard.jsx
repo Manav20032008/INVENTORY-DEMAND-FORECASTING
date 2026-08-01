@@ -5,5 +5,5 @@ export default function StatCard({ label, value, hint, accent = "blue" }) {
       <strong className="stat-card__value">{value}</strong>
       {hint ? <span className="stat-card__hint">{hint}</span> : null}
     </article>
-  );
+  )
 }

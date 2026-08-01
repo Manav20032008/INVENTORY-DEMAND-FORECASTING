@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 function formatPrediction(value) {
-  return Number(value).toFixed(2);
+  return Number(value).toFixed(2)
 }
 
 function formatTimestamp(iso) {
@@ -11,11 +11,11 @@ function formatTimestamp(iso) {
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-  });
+  })
 }
 
 export default function HistoryTable({ predictions, loading }) {
-  if (loading) return null;
+  if (loading) return null
 
   if (!predictions.length) {
     return (
@@ -29,7 +29,7 @@ export default function HistoryTable({ predictions, loading }) {
           Go to Predict
         </Link>
       </div>
-    );
+    )
   }
 
   return (
@@ -74,5 +74,5 @@ export default function HistoryTable({ predictions, loading }) {
         </table>
       </div>
     </div>
-  );
+  )
 }

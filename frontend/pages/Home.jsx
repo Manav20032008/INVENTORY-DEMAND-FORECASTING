@@ -1,35 +1,35 @@
-import { useState } from "react";
-import PredictionForm from "../components/PredictionForm";
-import PredictionResult from "../components/PredictionResult";
-import ErrorAlert from "../components/ErrorAlert";
-import { createPrediction } from "../services/predictionService";
+import { useState } from "react"
+import PredictionForm from "../components/PredictionForm"
+import PredictionResult from "../components/PredictionResult"
+import ErrorAlert from "../components/ErrorAlert"
+import { createPrediction } from "../services/predictionService"
 
 export default function Home() {
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [result, setResult] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const handleSubmit = async (payload) => {
-    setLoading(true);
-    setError("");
+    setLoading(true)
+    setError("")
     try {
       const data = await createPrediction(payload);
-      setResult(data);
+      setResult(data)
     } catch (err) {
-      setError(err.message);
-      setResult(null);
+      setError(err.message)
+      setResult(null)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <section className="page">
       <div className="page-header">
         <h2>Forecast Sales Demand</h2>
         <p>
-          Submit engineered features to the XGBoost model and store the result in
-          PostgreSQL prediction history.
+          Submit engineered features to the ML model and store the result 
+          with predictions history.
         </p>
       </div>
       <ErrorAlert message={error} onRetry={() => setError("")} />
@@ -38,5 +38,5 @@ export default function Home() {
         <PredictionResult result={result} />
       </div>
     </section>
-  );
+  )
 }

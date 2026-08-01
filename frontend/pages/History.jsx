@@ -1,30 +1,26 @@
-import { useState } from "react";
-import HistoryTable from "../components/HistoryTable";
-import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorAlert from "../components/ErrorAlert";
-import Pagination from "../components/Pagination";
-import usePredictions from "../hooks/usePredictions";
+import { useState } from "react"
+import HistoryTable from "../components/HistoryTable"
+import LoadingSpinner from "../components/LoadingSpinner"
+import ErrorAlert from "../components/ErrorAlert"
+import Pagination from "../components/Pagination"
+import usePredictions from "../hooks/usePredictions"
 
-const PAGE_SIZE = 15;
+const PAGE_SIZE = 15
 
 export default function History() {
-  const [storeFilter, setStoreFilter] = useState("");
-  const [page, setPage] = useState(1);
-  const { predictions, loading, error, reload } = usePredictions({
-    page,
-    limit: PAGE_SIZE,
-    store: storeFilter || null,
-  });
+  const [storeFilter, setStoreFilter] = useState("")
+  const [page, setPage] = useState(1)
+  const { predictions, loading, error, reload } = usePredictions({page,limit: PAGE_SIZE,store: storeFilter || null,})
 
   const handleStoreChange = (event) => {
-    setStoreFilter(event.target.value);
-    setPage(1);
-  };
+    setStoreFilter(event.target.value)
+    setPage(1)
+  }
 
   const clearFilter = () => {
-    setStoreFilter("");
-    setPage(1);
-  };
+    setStoreFilter("")
+    setPage(1)
+  }
 
   return (
     <section className="page">
@@ -77,5 +73,5 @@ export default function History() {
         />
       ) : null}
     </section>
-  );
+  )
 }

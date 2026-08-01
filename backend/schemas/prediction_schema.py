@@ -2,12 +2,12 @@ from pydantic import BaseModel, Field
 
 
 class PredictionRequest(BaseModel):
-    store: int = Field(..., ge=1)
-    item: int = Field(..., ge=1)
+    store: int = Field(..., ge=1,le=10)
+    item: int = Field(..., ge=1,le=50)
     year: int = Field(..., ge=2013, le=2030)
     month: int = Field(..., ge=1, le=12)
     day: int = Field(..., ge=1, le=31)
-    daysofweek: int = Field(..., ge=0, le=6)
+    daysofweek: int = Field(..., ge=1, le=7)
     weekofyear: int = Field(..., ge=1, le=53)
     quarter: int = Field(..., ge=1, le=4)
     is_weekend: int = Field(..., ge=0, le=1)

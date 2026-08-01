@@ -4,5 +4,5 @@ export default function LoadingSpinner({ message = "Loading..." }) {
       <div className="spinner" aria-hidden="true" />
       <p>{message}</p>
     </div>
-  );
+  )
 }

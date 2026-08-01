@@ -9,7 +9,7 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <footer className="footer">
-        <p>Inventory Demand Forecasting &mdash; ML-powered sales prediction</p>
+        <p>&copy; Inventory Demand Forecasting &mdash; ML powered sales prediction for local stores</p>
       </footer>
     </div>
   );

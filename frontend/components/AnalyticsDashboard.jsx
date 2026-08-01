@@ -1,12 +1,12 @@
-import StatCard from "./StatCard";
-import PredictionsTrendChart from "./PredictionsTrendChart";
-import StoreBreakdownChart from "./StoreBreakdownChart";
-import PredictionRangeBar from "./PredictionRangeBar";
+import StatCard from "./StatCard"
+import PredictionsTrendChart from "./PredictionsTrendChart"
+import StoreBreakdownChart from "./StoreBreakdownChart"
+import PredictionRangeBar from "./PredictionRangeBar"
 
 export default function AnalyticsDashboard({ analytics, predictions }) {
-  if (!analytics) return null;
+  if (!analytics) return null
 
-  const hasData = analytics.total_predictions > 0;
+  const hasData = analytics.total_predictions > 0
 
   return (
     <div className="dashboard">
@@ -85,5 +85,5 @@ export default function AnalyticsDashboard({ analytics, predictions }) {
         </section>
       )}
     </div>
-  );
+  )
 }

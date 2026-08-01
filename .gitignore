@@ -36,4 +36,4 @@ htmlcov/
 .coverage
 
 data/Intermeadiate/pro_data.csv
-data/Raw/data.csv
+data/raw/train.csv

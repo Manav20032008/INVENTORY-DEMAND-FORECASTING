@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Session
-
 from backend.repositories.prediction_repository import PredictionRepository
-
+ 
 
 class AnalyticsService:
     @staticmethod

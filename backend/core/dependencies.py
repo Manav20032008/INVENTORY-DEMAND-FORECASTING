@@ -1,6 +1,5 @@
 from functools import lru_cache
 from collections.abc import Generator
-
 from sqlalchemy.orm import Session
 
 from backend.core.settings import settings
@@ -11,6 +10,8 @@ from backend.services.prediction_service import PredictionService
 
 def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
+
+    
     try:
         yield db
     finally:

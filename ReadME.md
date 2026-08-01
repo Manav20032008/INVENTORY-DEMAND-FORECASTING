@@ -121,6 +121,61 @@ INVENTORY-DEMAND-FORECASTING/
 
 ---
 
+# 📚 API Documentation
+
+The backend is built with **FastAPI**, which automatically generates interactive API documentation.
+
+After starting the backend server, you can access:
+
+| Documentation | URL |
+|--------------|-----|
+| Swagger UI | http://localhost:8000/docs |
+| ReDoc | http://localhost:8000/redoc |
+| OpenAPI Schema | http://localhost:8000/openapi.json |
+
+### Start the Backend
+
+```bash
+cd backend
+
+uvicorn app:app --reload
+```
+
+or
+
+```bash
+uvicorn backend.app:app --reload
+```
+
+(depending on your project structure)
+
+Once the server is running, open your browser and visit:
+
+```
+http://localhost:8000/docs
+```
+
+### Available API Features
+
+- 🔮 Demand Prediction
+- 📊 Analytics Dashboard
+- 📜 Prediction History
+- ❤️ Health Check
+- 📈 Model Insights
+
+All endpoints are documented with:
+
+- Request Body Schema
+- Response Schema
+- Status Codes
+- Validation Errors
+- Example Requests
+- Example Responses
+
+The API documentation is generated automatically from FastAPI using the OpenAPI specification, ensuring it always stays synchronized with the backend implementation.
+
+---
+
 # ⚙ Installation
 
 Clone the repository

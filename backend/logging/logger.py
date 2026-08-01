@@ -1,15 +1,16 @@
 import logging
 
-def get_logger():
+from backend.core.settings import settings
 
-    logging.basicConfig(
-        level=logging.INFO,
-        format=(
-            "%(asctime)s - "
-            "%(levelname)s - "
-            "%(message)s"
+
+def get_logger(name: str = "inventory-api") -> logging.Logger:
+    logger = logging.getLogger(name)
+    if not logger.handlers:
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter(
+            "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
         )
-    )
-
-    return logging.getLogger("invetory-api")
-
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        logger.setLevel(settings.LOG_LEVEL)
+    return logger

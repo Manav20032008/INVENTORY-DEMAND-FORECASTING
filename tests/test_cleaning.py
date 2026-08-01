@@ -1,5 +1,5 @@
-from src.preprocessing.data_loader import DataLoader
-from src.preprocessing.data_cleaning import DataCleaner
+from backend.src.preprocessing.data_loader import DataLoader
+from backend.src.preprocessing.data_cleaning import DataCleaner
 
 loader = DataLoader()
 

@@ -1,7 +1,7 @@
-from src.preprocessing.data_loader import DataLoader
-from src.preprocessing.data_cleaning import DataCleaner
-from src.feature_engineering.date_features import DateFeatures
-from src.feature_engineering.lag_features import LagFeatures
+from backend.src.preprocessing.data_loader import DataLoader
+from backend.src.preprocessing.data_cleaning import DataCleaner
+from backend.src.feature_engineering.date_features import DateFeatures
+from backend.src.feature_engineering.lag_features import LagFeatures
 
 loader = DataLoader()
 

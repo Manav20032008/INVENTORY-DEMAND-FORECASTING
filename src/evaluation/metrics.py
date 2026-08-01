@@ -1,7 +1,5 @@
 import numpy as np
-from sklearn.metrics import (mean_absolute_error,
-                             mean_squared_error,
-                             r2_score)
+from sklearn.metrics import (mean_absolute_error,mean_squared_error,r2_score)
 
 class RegressionMetrics :
 
@@ -22,19 +20,10 @@ class RegressionMetrics :
         y_true = np.array(y_true)
         y_pred = np.array(y_pred)
         mask = y_true != 0
-
-        return (np.mean(
-            np.abs((y_true[mask]-y_pred[mask])/y_true[mask])
-            )*100)
+        return (np.mean(np.abs((y_true[mask]-y_pred[mask])/y_true[mask]))*100)
 
     @staticmethod
     def evaluate(y_true,y_pred):
-
-        results = {
-            "MAE":RegressionMetrics.mae(y_true,y_pred),
-            "RMSE":RegressionMetrics.rmse(y_true,y_pred),
-            "R2":RegressionMetrics.r2(y_true,y_pred),
-            "MAPE":RegressionMetrics.mape(y_true,y_pred)
-        }
-
+        results = {"mae":RegressionMetrics.mae(y_true,y_pred),"rmse":RegressionMetrics.rmse(y_true,y_pred),
+            "r2":RegressionMetrics.r2(y_true,y_pred),"mape":RegressionMetrics.mape(y_true,y_pred)}
         return results

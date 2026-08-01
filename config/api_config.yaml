@@ -2,6 +2,6 @@ api:
   title: Inventory Demand API
   version: 1.0.0
 
-server:
+server: # Backend API Server (Uvicorn)
   host: 127.0.0.1
   port: 8000

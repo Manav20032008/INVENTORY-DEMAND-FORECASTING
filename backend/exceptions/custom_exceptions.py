@@ -10,6 +10,5 @@ class PredictionException(Exception):
         super().__init__(self.message)
 
 
-# Backward-compatible aliases (typo names from original project)
 model_not_found_execption = ModelNotFoundException
 predictiob_execption = PredictionException

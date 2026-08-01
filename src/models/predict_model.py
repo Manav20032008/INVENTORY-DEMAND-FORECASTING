@@ -3,7 +3,6 @@ import joblib
 from backend.core.settings import settings
 from backend.exceptions.custom_exceptions import ModelNotFoundException
 
-
 class PredictionModel:
     def __init__(self):
         try:

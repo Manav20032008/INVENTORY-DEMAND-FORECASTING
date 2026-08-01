@@ -1,9 +1,9 @@
-from backend.src.preprocessing.data_loader import DataLoader
-from backend.src.preprocessing.data_cleaning import DataCleaner
+from src.preprocessing.data_loader import DataLoader
+from src.preprocessing.data_cleaning import DataCleaner
 
 loader = DataLoader()
-
 df = loader.load_csv("Inventory_Demand/data/raw/train.csv")
+
 
 clean_df = DataCleaner.clean_data(df)
 

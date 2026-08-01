@@ -8,7 +8,7 @@ venv/
 .mypy_cache/
 .ruff_cache/
 
-# Data & artifacts (keep structure, ignore large generated files if needed)
+# artifacts 
 *.log
 *.sqlite
 
@@ -35,9 +35,5 @@ Thumbs.db
 htmlcov/
 .coverage
 
-data/Intermeadiate/pro_data.csv
-data/raw/train.csv
-
+# Data 
 data/
-
-.venv/

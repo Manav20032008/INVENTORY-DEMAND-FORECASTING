@@ -39,3 +39,5 @@ data/Intermeadiate/pro_data.csv
 data/raw/train.csv
 
 data/
+
+.venv/

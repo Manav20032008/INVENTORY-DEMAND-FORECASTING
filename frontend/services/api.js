@@ -1,10 +1,22 @@
-import axios from "axios"
+import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:8000",
-    headers: {
-        "Content-Type" : "application/json"
-    }
-})
+  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export default api
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const message =
+      error.response?.data?.message ||
+      error.response?.data?.detail ||
+      error.message ||
+      "Unexpected API error";
+    return Promise.reject(new Error(message));
+  }
+);
+
+export default api;

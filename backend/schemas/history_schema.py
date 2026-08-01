@@ -1,12 +1,14 @@
-from pydantic import BaseModel
+from pydantic import ConfigDict
 from datetime import datetime
 
-class PredictionHistoryResponse(BaseModel):
-    id:int
-    store:int
-    item:int
-    prediction:float
-    created_at:datetime
+from pydantic import BaseModel
 
-    class Config:
-        from_attributes = True
+
+class PredictionHistoryResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    store: int
+    item: int
+    prediction: float
+    created_at: datetime

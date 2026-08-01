@@ -6,3 +6,5 @@ class AnalyticsResponse(BaseModel):
     average_prediction: float
     highest_prediction: float
     lowest_prediction: float
+    unique_stores: int
+    unique_items: int

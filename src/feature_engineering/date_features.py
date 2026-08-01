@@ -14,7 +14,7 @@ class DateFeatures :
     
     @staticmethod
     def create_day(df : pd.DataFrame) -> pd.DataFrame :
-        df["day"] = df["date"].dt.year
+        df["day"] = df["date"].dt.day
         return df
     
     @staticmethod

@@ -9,8 +9,8 @@ class DataPipeline:
         self.loader = DataLoader()
 
     def run(
-            self, 
-            file_path = "Inventory_Demand/data/raw/train.csv"
+            self,
+            file_path: str = "data/raw/train.csv"
     ):
         print("Loading Data ...")
         df = self.loader.load_csv(file_path)

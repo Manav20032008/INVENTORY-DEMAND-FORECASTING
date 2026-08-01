@@ -1,13 +1,15 @@
-class model_not_found_execption(Exception):
-
-    def __init__(self,message="Model file not found."):
+class ModelNotFoundException(Exception):
+    def __init__(self, message: str = "Model file not found."):
         self.message = message
         super().__init__(self.message)
 
-class predictiob_execption(Exception):
 
-    def __init__(self,message="Prediction failed."):
+class PredictionException(Exception):
+    def __init__(self, message: str = "Prediction failed."):
         self.message = message
         super().__init__(self.message)
 
-        
+
+# Backward-compatible aliases (typo names from original project)
+model_not_found_execption = ModelNotFoundException
+predictiob_execption = PredictionException

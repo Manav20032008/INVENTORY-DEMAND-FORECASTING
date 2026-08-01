@@ -1,7 +1,7 @@
 import joblib
 import json
 from pathlib import Path
-from src.pipelines.data_pipeline import DataPipeline
+from src.pipeline.data_pipeline import DataPipeline
 from src.models.train_xgboost import XGBoostTainer
 from src.evaluation.metrics import RegressionMetrics
 
